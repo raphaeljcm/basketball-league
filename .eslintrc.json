@@ -32,12 +32,7 @@
     "no-shadow": "off",
     "camelcase": "off",
     "import/no-duplicates": "off",
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": [ ".svg" ]
-      }
-    ],
+    "import/no-unresolved": "off",
     "no-nested-ternary": "off",
     "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
@@ -79,14 +74,7 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "@typescript-eslint/camelcase": "off"
   },
   "settings": {
