@@ -1,3 +1,4 @@
+import { TeamPage } from '@/TeamPage';
 import { Route, Routes } from 'react-router-dom';
 
 import DefaultLayout from './layout/DefaultLayout';
@@ -12,6 +13,7 @@ export function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/players" element={<Players />} />
         <Route path="/teams" element={<Teams />} />
+        <Route path="/:teamId" element={<TeamPage />} />
       </Route>
     </Routes>
   );

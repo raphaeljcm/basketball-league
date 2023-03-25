@@ -1028,8 +1028,7 @@ const logos = {
   ),
 };
 
-type Logos = keyof typeof logos;
-
+export type Logos = keyof typeof logos;
 interface TeamLogo {
   width: string;
   id: Logos;
