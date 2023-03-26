@@ -7,7 +7,7 @@ type UseTeamNamesResponse = {
 };
 
 export function useTeamNames() {
-  return useQuery<Logos[]>(['teams'], async ({ signal }) => {
+  return useQuery<Logos[]>(['teams', 'names'], async ({ signal }) => {
     const { data } = await api.get<UseTeamNamesResponse>('/teams', {
       signal,
     });
