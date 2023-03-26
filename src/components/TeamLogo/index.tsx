@@ -1030,7 +1030,7 @@ const logos = {
 
 export type Logos = keyof typeof logos;
 interface TeamLogo {
-  width: string;
+  width?: string;
   id: Logos;
 }
 
