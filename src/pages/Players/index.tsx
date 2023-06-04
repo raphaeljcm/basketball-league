@@ -1,6 +1,10 @@
-import { LinkProps, useLocation, useSearchParams } from 'react-router-dom';
+import {
+  LinkProps,
+  Outlet,
+  useLocation,
+  useSearchParams,
+} from 'react-router-dom';
 import { usePlayerNames } from 'src/hooks/usePlayerNames';
-import * as ES from 'src/styles';
 import { slugify } from 'src/utils/helpers';
 
 import * as S from './styles';
@@ -41,15 +45,20 @@ export default function Players() {
   const playerNames = usePlayerNames(team);
 
   if (!playerNames.data)
-    return <ES.Container>Could not fetch the players.</ES.Container>;
+    return (
+      <S.PlayersContainer>Could not fetch the players.</S.PlayersContainer>
+    );
 
   return (
-    <ES.Container>
+    <S.PlayersContainer>
       {playerNames.isLoading ? (
         <p>Players are loading...</p>
       ) : (
-        <Sidebar list={playerNames.data} />
+        <>
+          <Sidebar list={playerNames.data} />
+          <Outlet />
+        </>
       )}
-    </ES.Container>
+    </S.PlayersContainer>
   );
 }

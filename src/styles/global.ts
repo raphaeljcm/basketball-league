@@ -23,7 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.white};
   }
 
-
   a {
     color: ${({ theme }) => theme.yellow};
     text-decoration: none;

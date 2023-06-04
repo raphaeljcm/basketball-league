@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
+import * as S from 'src/styles';
 import { pxToRem } from 'src/utils/responsivity';
 import styled from 'styled-components';
+
+export const PlayersContainer = styled(S.Container)`
+  display: flex;
+`;
 
 export const SidebarContainer = styled.main`
   h3 {
