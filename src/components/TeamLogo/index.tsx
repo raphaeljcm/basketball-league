@@ -1032,6 +1032,7 @@ export type Logos = keyof typeof logos;
 interface TeamLogo {
   width?: string;
   id: Logos;
+  style?: React.CSSProperties;
 }
 
 export default function TeamLogo({ width = '200px ', id, ...rest }: TeamLogo) {

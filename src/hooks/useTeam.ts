@@ -1,3 +1,4 @@
+import { Logos } from '@/TeamLogo';
 import { useQuery } from '@tanstack/react-query';
 import { api } from 'src/services/api';
 
@@ -9,7 +10,7 @@ type UseTeam = {
   championships: number[];
   coach: string;
   established: number;
-  id: string;
+  id: Logos;
   losses: number;
   manager: string;
   name: string;
@@ -29,7 +30,7 @@ type UseTeam = {
 };
 
 export function useTeam(teamId?: string) {
-  return useQuery<UseTeam>(
+  return useQuery<UseTeam, Error>(
     ['teams', teamId],
     async ({ signal }) => {
       const { data } = await api.post<UseTeamResponse>(
