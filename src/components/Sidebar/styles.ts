@@ -23,9 +23,9 @@ export const SidebarContainer = styled.main`
   }
 `;
 
-type CustomLinkStyledProps = { active: boolean };
+type CustomLinkStyledProps = { active: number };
 
 export const CustomLinkStyled = styled(Link)<CustomLinkStyledProps>`
   font-weight: 900;
-  color: ${({ active, theme }) => active && theme.white};
+  color: ${({ active, theme }) => active === 1 && theme.white};
 `;

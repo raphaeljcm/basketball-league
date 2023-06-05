@@ -1,4 +1,4 @@
-import { LinkProps, useLocation } from 'react-router-dom';
+import { LinkProps, useLocation, useMatch } from 'react-router-dom';
 import { slugify } from 'src/utils/helpers';
 
 import * as S from './styles';
@@ -25,13 +25,13 @@ export function Sidebar({ title, list }: SidebarProps) {
 
 function CustomLink({ to, children }: LinkProps) {
   const location = useLocation();
-  const playerId = location.pathname.split('/')[2];
-  const match = playerId === to;
+  const split = location.pathname.split('/');
+  const match = split[split.length - 1] === to;
 
   return (
     <S.CustomLinkStyled
       to={{ pathname: to as string, search: location.search }}
-      active={match}
+      active={+match}
     >
       {children}
     </S.CustomLinkStyled>

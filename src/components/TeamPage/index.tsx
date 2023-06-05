@@ -1,7 +1,7 @@
 import TeamLogo, { Logos } from '@/TeamLogo';
 import { Link, useParams } from 'react-router-dom';
+import { useTeamArticles } from 'src/hooks/articles/useTeamArticles';
 import { useTeam } from 'src/hooks/useTeam';
-import { useTeamArticles } from 'src/hooks/useTeamArticles';
 import { useTeamNames } from 'src/hooks/useTeamNames';
 import * as ES from 'src/styles';
 import { formatDate, slugify } from 'src/utils/helpers';
