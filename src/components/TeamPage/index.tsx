@@ -1,3 +1,4 @@
+import { Loading } from '@/Loading';
 import TeamLogo, { Logos } from '@/TeamLogo';
 import { Link, useParams } from 'react-router-dom';
 import { useTeamArticles } from 'src/hooks/articles/useTeamArticles';
@@ -29,7 +30,7 @@ export function TeamPage() {
       <S.Panel>
         <TeamLogo id={teamId as Logos} />
         {teamQuery.isLoading ? (
-          <p>Loading team info...</p>
+          <Loading />
         ) : (
           <>
             <h1>{teamQuery.data.name}</h1>
@@ -66,7 +67,7 @@ export function TeamPage() {
 
             <S.ArticlesList>
               {teamArticles.isLoading ? (
-                <p>Loading team articles...</p>
+                <Loading />
               ) : (
                 teamArticles.data.map(article => (
                   <li key={article.id}>

@@ -1,3 +1,4 @@
+import { Loading } from '@/Loading';
 import { Sidebar } from '@/Sidebar';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { usePlayerNames } from 'src/hooks/usePlayerNames';
@@ -17,7 +18,7 @@ export default function Players() {
   return (
     <S.PlayersContainer>
       {playerNames.isLoading ? (
-        <p>Players are loading...</p>
+        <Loading />
       ) : (
         <>
           <Sidebar title="Players" list={playerNames.data} />

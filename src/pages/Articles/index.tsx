@@ -1,3 +1,4 @@
+import { Loading } from '@/Loading';
 import { Sidebar } from '@/Sidebar';
 import { Outlet, useParams } from 'react-router-dom';
 import { useTeamArticlesTitle } from 'src/hooks/articles/useTeamArticles';
@@ -10,11 +11,14 @@ export default function Articles() {
 
   if (teamsQuery.isError) return <h2>Error loading teams</h2>;
 
-  if (teamsQuery.isLoading) return <h2>Loading teams...</h2>;
-
   return (
     <S.ArticlesContainer>
-      <Sidebar title="Articles" list={teamsQuery.data} />
+      {teamsQuery.isLoading ? (
+        <Loading />
+      ) : (
+        <Sidebar title="Articles" list={teamsQuery.data} />
+      )}
+
       <Outlet />
     </S.ArticlesContainer>
   );

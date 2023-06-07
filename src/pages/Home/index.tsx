@@ -1,3 +1,4 @@
+import { Loading } from '@/Loading';
 import TeamLogo from '@/TeamLogo';
 import { Link } from 'react-router-dom';
 import { useTeamNames } from 'src/hooks/useTeamNames';
@@ -14,7 +15,7 @@ export default function Home() {
       <S.SmallHeader>Select a team</S.SmallHeader>
 
       <S.HomeGrid>
-        {teamNames.isLoading && <p>Loading teams...</p>}
+        {teamNames.isLoading && <Loading />}
         {teamNames.isError && <p>The was an error fetching the teams</p>}
         {!!teamNames.data && teamNames.data.length <= 0 ? (
           <p>Could not find any team</p>

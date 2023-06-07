@@ -55,4 +55,10 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 60%;
     }
   }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
