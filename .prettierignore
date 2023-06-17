@@ -10,3 +10,4 @@ webpack/*.js
 .vs
 .gitlab-ci.yml
 *.md
+.vercel
