@@ -1,7 +1,6 @@
-import { LinkProps, useLocation, useMatch } from 'react-router-dom';
-import { slugify } from 'src/utils/helpers';
-
 import * as S from './styles';
+import { LinkProps, useLocation } from 'react-router-dom';
+import { slugify } from 'src/utils/helpers';
 
 interface SidebarProps {
   title: string;
