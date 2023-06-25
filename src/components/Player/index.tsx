@@ -29,7 +29,7 @@ export function Player() {
               <li>
                 Team
                 <div>
-                  <Link to={`${playerQuery.data.teamId}`}>
+                  <Link to={`/${playerQuery.data.teamId}`}>
                     {playerQuery.data.teamId[0].toUpperCase() +
                       playerQuery.data.teamId.slice(1)}
                   </Link>
