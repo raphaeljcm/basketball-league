@@ -4,7 +4,7 @@ import { useArticle } from 'src/hooks/articles/useArticle';
 
 import * as S from './styles';
 
-export function Article() {
+export default function Article() {
   const { teamId, articleId } = useParams();
   const articleQuery = useArticle({ teamId, articleId });
 

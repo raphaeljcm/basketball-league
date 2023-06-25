@@ -9,7 +9,7 @@ import { formatDate, slugify } from 'src/utils/helpers';
 
 import * as S from './styles';
 
-export function TeamPage() {
+export default function TeamPage() {
   const { teamId } = useParams();
   const teamNames = useTeamNames();
   const teamQuery = useTeam(teamId);

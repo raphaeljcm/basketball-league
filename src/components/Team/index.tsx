@@ -5,7 +5,7 @@ import { useTeam } from 'src/hooks/useTeam';
 
 import * as S from './styles';
 
-export function Team() {
+export default function Team() {
   const { teamId } = useParams();
   const teamQuery = useTeam(teamId);
 

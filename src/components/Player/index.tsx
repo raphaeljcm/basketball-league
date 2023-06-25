@@ -4,7 +4,7 @@ import { usePlayer } from 'src/hooks/usePlayer';
 
 import * as S from './styles';
 
-export function Player() {
+export default function Player() {
   const { playerId } = useParams();
   const playerQuery = usePlayer(playerId);
 
