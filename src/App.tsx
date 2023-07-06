@@ -6,6 +6,8 @@ import { ThemeProvider } from 'styled-components';
 import { Router } from './Router';
 import { GlobalStyle } from './styles/global';
 import { defaultTheme } from './styles/themes/default';
+import { Suspense } from 'react';
+import { Loading } from '@/Loading';
 
 const queryClient = new QueryClient();
 
@@ -14,7 +16,9 @@ function App() {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={defaultTheme}>
-          <Router />
+          <Suspense fallback={<Loading />}>
+            <Router />
+          </Suspense>
           <GlobalStyle />
           <ReactQueryDevtools />
         </ThemeProvider>

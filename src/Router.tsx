@@ -1,6 +1,5 @@
-import { Loading } from '@/Loading';
-import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import { useRoutes } from 'react-router-dom';
 
 const Article = lazy(() => import('@/Article'));
 const Player = lazy(() => import('@/Player'));
@@ -14,38 +13,50 @@ const Players = lazy(() => import('./pages/Players'));
 const Teams = lazy(() => import('./pages/Teams'));
 
 export function Router() {
-  return (
-    <Suspense fallback={<Loading />}>
-      <Routes>
-        <Route path="/" element={<DefaultLayout />}>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/players" element={<Players />}>
-            <Route path=":playerId" element={<Player />} />
-            <Route
-              path=""
-              element={<h2 style={{ margin: 'auto' }}>Select a player</h2>}
-            />
-          </Route>
-
-          <Route path="/teams" element={<Teams />}>
-            <Route path=":teamId" element={<Team />} />
-            <Route
-              path=""
-              element={<h2 style={{ margin: 'auto' }}>Select a team</h2>}
-            />
-          </Route>
-
-          <Route path="/:teamId" element={<TeamPage />} />
-          <Route path="/:teamId/articles" element={<Articles />}>
-            <Route path=":articleId" element={<Article />} />
-            <Route
-              path=""
-              element={<h2 style={{ margin: 'auto' }}>Select an article</h2>}
-            />
-          </Route>
-        </Route>
-      </Routes>
-    </Suspense>
-  );
+  return useRoutes([
+    {
+      path: '/',
+      element: <DefaultLayout />,
+      children: [
+        { path: '/', element: <Home /> },
+        {
+          path: '/players',
+          element: <Players />,
+          children: [
+            { path: ':playerId', element: <Player /> },
+            {
+              path: '',
+              element: <h2 style={{ margin: 'auto' }}>Select a player</h2>,
+            },
+          ],
+        },
+        {
+          path: '/teams',
+          element: <Teams />,
+          children: [
+            { path: ':teamId', element: <Team /> },
+            {
+              path: '',
+              element: <h2 style={{ margin: 'auto' }}>Select a team</h2>,
+            },
+          ],
+        },
+        {
+          path: '/:teamId',
+          element: <TeamPage />,
+        },
+        {
+          path: '/:teamId/articles',
+          element: <Articles />,
+          children: [
+            { path: ':articleId', element: <Article /> },
+            {
+              path: '',
+              element: <h2 style={{ margin: 'auto' }}>Select an article</h2>,
+            },
+          ],
+        },
+      ],
+    },
+  ]);
 }
